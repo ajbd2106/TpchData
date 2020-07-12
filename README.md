@@ -2,9 +2,10 @@ tpch-kit
 TPCh Data Generation
 
 # TPC-H
+
 1. cd dbgen && cp makefile.suite makefile
 
-Modifications
+# Modifications
 The following modifications have been added on top of the official TPC-H kit:
 
 modify dbgen to not print trailing delimiter
@@ -13,26 +14,26 @@ add compile support for macOS
 add define for PostgreSQL to support LIMIT N for qgen
 adjust Makefile defaults
 
-Linux
+# Linux
 Make sure the required development tools are installed:
 
-Ubuntu:
+# Ubuntu:
 
-sudo apt-get install git make gcc
+# sudo apt-get install git make gcc
 CentOS/RHEL:
 
-sudo yum install git make gcc
-Then run the following commands to clone the repo and build the tools:
+# sudo yum install git make gcc
 
-git clone https://github.com/gregrahn/tpch-kit.git
-cd tpch-kit/dbgen
-make MACHINE=LINUX DATABASE=POSTGRESQL
-macOS
+# macOS
+
 Make sure the required development tools are installed:
 
 xcode-select --install
 Then run the following commands to clone the repo and build the tools:
 
+brew install git make gcc
+
+# Edit few files to make it compatible with Hive
 --
 `vi makefile`
 
@@ -70,13 +71,13 @@ WORKLOAD = TPCH
 
 `make`
 
-4.
+4. Generate Data with scaling factors
 
 `./dbgen -s 1`
 
 It will create all .tbl files in same directory.
 
-1. macos fatal error: 'malloc.h' file not found
+Error: macos fatal error: 'malloc.h' file not found
 
 `#include <malloc.h>` `#include <sys/malloc.h>`
 
